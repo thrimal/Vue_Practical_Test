@@ -19,7 +19,7 @@
               <h5 class="sub-content sub-content-2">5,423</h5>
               <p class="sub-content sub-content-3">
                 <span style="color: green; font-weight: bolder"
-                  ><i class="fa-solid fa-arrow-up m-1"></i>50%</span
+                  ><i style="margin-right: 3px;" class="fa-solid fa-arrow-up"></i>50%</span
                 >
                 this month
               </p>
@@ -36,7 +36,7 @@
               <h5 class="sub-content sub-content-2">1893</h5>
               <p class="sub-content sub-content-3">
                 <span style="color: red"
-                  ><i class="fa-solid fa-arrow-down m-1"></i>2%</span
+                  ><i style="margin-right: 3px;" class="fa-solid fa-arrow-down"></i>2%</span
                 >
                 this month
               </p>

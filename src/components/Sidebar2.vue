@@ -90,7 +90,7 @@ aside {
   flex-direction: column;
   background-color: var(--dark);
   color: var(--light);
-  width: calc(2rem + 32px);
+  width: calc(2rem + 50px);
   overflow: hidden;
   min-height: 100vh;
   padding: 0 1.6rem;
@@ -120,7 +120,6 @@ aside {
   .menu-toggle-wrap {
     display: flex;
     justify-content: flex-end;
-    // margin: 0 0 5px 0;
     position: relative;
     transition: 0.2s ease-in-out;
     .menu-toggle {
@@ -130,12 +129,14 @@ aside {
       display: flex;
       align-items: center;
       top: 5px;
-      left: 18px;
+      left: 3px;
+      margin: 0 0 5px 0;
       align-items: center;
       border: white;
+      // box-shadow: 0 0 4px 2px  rgba(0, 0, 0, 0.11);
       .material-icons {
         size: 45px;
-        color: grey;
+        color: rgb(77, 77, 77);
         transition: 0.2s ease-out;
       }
 
@@ -184,12 +185,13 @@ aside {
       }
 
       &:hover {
-        background-color: rgb(173, 185, 189);
+        background-color: rgb(240, 242, 243);
         border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 
         .material-icons,
         .text {
-          color: black;
+          color: rgb(77, 77, 77);
         }
       }
 
@@ -197,6 +199,7 @@ aside {
         background-color: rgb(141, 109, 201);
         border-right: 5px solid var(--primary);
         border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 
         .material-icons,
         .text {
@@ -222,6 +225,7 @@ aside {
     .menu-toggle-wrap {
       top: -3.5rem;
       // left: 10px;
+      margin: 0 0 0 0;
       .menu-toggle {
         transform: rotate(-180deg);
       }
@@ -243,7 +247,7 @@ aside {
     }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1366px) {
     position: absolute;
     z-index: 99;
   }

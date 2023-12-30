@@ -4,7 +4,6 @@
       <h6 class="header">
         Hello Evano <span style="font-size: 18px">&#128075;,</span>
       </h6>
-      <!-- <router-link to="/addCustomer"> -->
       <i
         @click="() => TogglePopup('buttonTrigger')"
         class="fa-solid fa-circle-plus icon"
@@ -14,7 +13,6 @@
         :TogglePopup="() => TogglePopup('buttonTrigger')"
       >
       </AddCustomer>
-      <!-- </router-link> -->
     </div>
 
     <div class="row p-0 m-0 top-content">
@@ -138,7 +136,7 @@
         <div class="col-12 second-content">
           <div
             class="table-responsive"
-            style="height: 320px; position: relative"
+            style="height: 320px; position: relative; overflow: scroll"
           >
             <table class="table align-middle mb-0 bg-white table-hover">
               <thead class="bg-light">
@@ -177,11 +175,24 @@
         </div>
         <div class="col-12 third-content mt-2">
           <div class="footer m-2">
-            <p style="position: absolute; left: 12px; bottom: 5px; font-size: 12px; color: gray;">Showing 1 to 8 of 256k entries</p>
-            <nav aria-label="Page navigation example" style="position: absolute; right: 12px;">
+            <p
+              style="
+                position: absolute;
+                left: 12px;
+                bottom: 5px;
+                font-size: 12px;
+                color: gray;
+              "
+            >
+              Showing 1 to 8 of 256k entries
+            </p>
+            <nav
+              aria-label="Page navigation"
+              style="position: absolute; right: 12px; bottom: 0"
+            >
               <ul
                 class="pagination pagination-sm justify-content-end"
-                style="font-weight: bold;"
+                style="font-weight: bold"
               >
                 <li
                   class="page-item disabled"
@@ -215,7 +226,6 @@
                 </li>
               </ul>
             </nav>
-           
           </div>
         </div>
       </div>
@@ -225,7 +235,7 @@
 
 <script setup>
 import { ref } from "vue";
-import AddCustomer from "../components/AddCustomer.vue";
+import AddCustomer from './AddCustomer.vue'
 
 let items = ref([]);
 
@@ -370,7 +380,8 @@ const TogglePopup = (trigger) => {
 
 <style lang="scss" scoped>
 .main-outer {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
   background: rgb(243, 251, 253);
@@ -548,17 +559,23 @@ const TogglePopup = (trigger) => {
       }
       .second-content {
         position: relative;
+        // height: 300px;
+        th,
+        thead {
+          position: sticky;
+          top: 0;
+        }
       }
 
       .thrid-content {
         position: relative;
 
         .footer {
-          position: relative ;
+          position: relative;
           display: flex;
 
-          .toe-message{
-            position: fixed;    
+          .toe-message {
+            position: absolute;
             margin: auto;
             bottom: 70px;
           }

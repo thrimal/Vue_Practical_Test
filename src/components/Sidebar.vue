@@ -1,8 +1,7 @@
 <template>
-  <!-- <aside v-if="is_small==true|false"> -->
   <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
     <div class="header-content">
-      <p class="header" id="header">
+      <p class="header" id="header" v-if="is_expanded">
         <i class="fa-solid fa-atom header-icon m-2"></i>Dashboard
       </p>
     </div>
@@ -17,23 +16,23 @@
         <span class="material-icons">dashboard</span>
         <span class="text">Dashboard</span>
       </router-link>
-      <router-link to="/customer" class="button">
+      <router-link to="/customer" active class="button">
         <span class="material-icons">account_box</span>
         <span class="text">Customer</span>
       </router-link>
-      <router-link to="/product" class="button">
+      <router-link to="/test" class="button">
         <span class="material-icons">category</span>
         <span class="text">Product</span>
       </router-link>
-      <router-link to="/" class="button">
+      <router-link to="/test" class="button">
         <span class="material-icons">account_balance_wallet</span>
         <span class="text">Income</span>
       </router-link>
-      <router-link to="/" class="button">
+      <router-link to="/test" class="button">
         <span class="material-icons"> new_releases </span>
         <span class="text">Promote</span>
       </router-link>
-      <router-link to="/" class="button">
+      <router-link to="/test" class="button">
         <span class="material-icons">help</span>
         <span class="text">Help</span>
       </router-link>
@@ -51,41 +50,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUpdated } from "vue";
+import { ref } from "vue";
+import logoURL from "../assets/vue.svg";
 
-let is_expanded = ref(localStorage.getItem("is_expanded") === "true");
-let is_small = ref(localStorage.getItem("is_small") === "true");
-
-onMounted(() => {
-  const screen = window.matchMedia("(max-width: 640px)");
-
-  if (screen.matches) {
-    is_small.value = true;
-    localStorage.setItem("is_small", true);
-  } else {
-    is_small.value = false;
-    localStorage.setItem("is_small", false);
-  }
-
-  ToggleMenu(); // Call this function to set initial state
-});
+const is_expanded = ref(localStorage.getItem("is_expanded") === "true");
+const header = document.getElementById("header");
 
 const ToggleMenu = () => {
   is_expanded.value = !is_expanded.value;
-
-  if (is_small.value) {
-    localStorage.setItem("is_expanded", "false");
-  } else {
-    localStorage.setItem("is_expanded", is_expanded.value.toString());
-  }
-
-  const header = document.getElementById("header");
-
-  if (!is_expanded.value) {
-    header.style.display = "none";
-  } else {
-    header.style.display = "";
-  }
+  localStorage.setItem("is_expanded", is_expanded.value);
 };
 </script>
 
@@ -95,13 +68,13 @@ aside {
   flex-direction: column;
   background-color: var(--dark);
   color: var(--light);
-  width: calc(2rem + 50px);
+  width: calc(2rem + 32px);
   overflow: hidden;
   min-height: 100vh;
   padding: 0 1.6rem;
   // margin: -1.2rem;
   transition: 0.2s ease-in-out;
-  position: absolute;
+
   .flex {
     flex: 1 1 0%;
   }
@@ -109,22 +82,26 @@ aside {
   .header-content {
     margin: 0 -1rem;
     width: 270px;
+    
+    height: 70px;
     .header {
       color: black;
       font-size: 30px;
       display: flex;
       align-items: center;
       width: 270px;
+      position: relative;
     }
 
     .header-icon {
       color: #000000;
+      position: relative;
     }
   }
 
   .menu-toggle-wrap {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     position: relative;
     transition: 0.2s ease-in-out;
     .menu-toggle {
@@ -133,16 +110,15 @@ aside {
       border-radius: 100px;
       display: flex;
       align-items: center;
-      top: 5px;
-      left: 3px;
-      margin: 0 0 5px 0;
+      top: 25px;
       align-items: center;
       border: white;
-      // box-shadow: 0 0 4px 2px  rgba(0, 0, 0, 0.11);
+      box-shadow: 0 0 4px 2px  rgba(0, 0, 0, 0.11);
       .material-icons {
         size: 45px;
         color: rgb(77, 77, 77);
         transition: 0.2s ease-out;
+        position: relative;
       }
 
       &:hover {
@@ -169,8 +145,10 @@ aside {
   }
 
   .menu {
+    position: relative;
+    top: 40px;
     margin: 0 -1rem;
-    width: 270px;
+    width: 300px;
     .button {
       display: flex;
       align-items: center;
@@ -227,12 +205,11 @@ aside {
   }
 
   &.is-expanded {
-    width: 290px;
+    width: var(--sidebar-width);
 
     .menu-toggle-wrap {
-      top: -3.5rem;
-      // left: 10px;
-      margin: 0 0 0 0;
+      top: -3rem;
+
       .menu-toggle {
         transform: rotate(-180deg);
       }
@@ -254,8 +231,8 @@ aside {
     }
   }
 
-  @media (max-width: 1366px) {
-    position: absolute;
+  @media (max-width: 1024px) {
+    position: relative;
     z-index: 99;
   }
 }

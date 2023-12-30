@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-outer">
     <table>
       <thead>
         <tr>
@@ -61,6 +61,19 @@ const data = ref([
 const expandedRow = ref(null);
 
 const toggleRow = (rowId) => {
-  expandedRow.value = expandedRow.value === rowId ? null : data.value.find((row) => row.id === rowId);
+  expandedRow.value =
+    expandedRow.value === rowId
+      ? null
+      : data.value.find((row) => row.id === rowId);
 };
 </script>
+
+<style lang="scss">
+.main-outer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: rgb(243, 251, 253);
+}
+</style>

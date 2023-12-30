@@ -5,3 +5,18 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+
+instructions
+=====================================================================
+
+1. npm install
+
+2. npm run dev
+
+3. click customer tab in the side nav bar to go to customer page
+
+4. click green plus icon in the top right corner to popup add new customer form
+
+5. click add button to add multiple address in the new customer form
+

@@ -49,12 +49,13 @@
             <!-- Name input -->
             <div data-mdb-input-init class="form-outline">
               <input
-                type="number"
+                type="text"
                 id="address"
                 class="form-control field"
                 v-model="input.address"
+                disabled
               />
-              <label class="form-label" for="address">Address</label>
+              <!-- <label class="form-label" for="address">Address</label> -->
             </div>
           </div>
           <div class="col-3 mt-2">
@@ -137,10 +138,11 @@ import { ref } from "vue";
 import axios from "axios";
 
 const { TogglePopup } = defineProps(["TogglePopup"]);
+let num = 1;
 
 const inputs = ref([
   {
-    address: "",
+    address: num,
     no: "",
     street: "",
     city: "",
@@ -148,11 +150,13 @@ const inputs = ref([
 ]);
 
 const add = (index) => {
-  inputs.value.push({ address: "", no: "", street: "", city: "" });
+    ++num;
+  inputs.value.push({ address: num, no: "", street: "", city: "" });
 };
 
 const remove = (index) => {
   inputs.value.splice(index, 1);
+  --num;
 };
 
 const shouldShowRemoveIcon = (index) =>
@@ -160,7 +164,7 @@ const shouldShowRemoveIcon = (index) =>
 
 const shouldShowAddIcon = (index) => index === inputs.value.length - 1;
 
-const addCandidate = () => {
+const addAddresses = () => {
   const jsonData = JSON.stringify(inputs.value);
 
   axios
@@ -266,10 +270,11 @@ const addCandidate = () => {
           border-bottom: 1px solid lightgray;
           border-radius: 0px;
           font-size: 14px;
+          font-weight: bold;
         }
 
-        .submit{
-            width: 100%;
+        .submit {
+          width: 100%;
         }
       }
     }

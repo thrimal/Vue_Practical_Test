@@ -236,14 +236,16 @@ const addAddresses = () => {
         margin-bottom: 10px;
         .add-btn {
           position: absolute;
-          height: 33px;
+          width: 90px;
+          // height: 33px;
           left: 12px;
           font-weight: bolder;
         }
 
         .delete-btn {
           position: absolute;
-          height: 33px;
+          width: 90px;
+          // height: 33px;
           right: 12px;
           font-weight: bolder;
         }
@@ -275,6 +277,7 @@ const addAddresses = () => {
 
         .submit {
           width: 100%;
+          font-weight: bolder;
         }
       }
     }

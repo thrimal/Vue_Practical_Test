@@ -1,18 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Dashboard from '../components/Dashboard.vue'
+import Customer from '../components/Customer.vue'
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      path: '/',
+      redirect: '/customer'
+    },
+    {
       path: '/dashboard',
       name: 'dashboard',
-      component: Dashboard,
+      component:() => import('../components/Dashboard.vue'),
     },
     {
       path: '/customer',
       name: 'customer',
-      component: () => import('../components/Customer.vue'),
+      component: Customer,
     },
     {
       path: '/addCustomer',

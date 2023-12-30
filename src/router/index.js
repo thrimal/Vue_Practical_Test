@@ -13,7 +13,12 @@ const router = createRouter({
       path: '/customer',
       name: 'customer',
       component: () => import('../components/Customer.vue'),
-    }
+    },
+    {
+      path: '/addCustomer',
+      name: 'addCustomer',
+      component: () => import('../components/AddCustomer.vue'),
+    },
   ],
 })
 

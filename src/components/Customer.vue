@@ -4,7 +4,17 @@
       <h6 class="header">
         Hello Evano <span style="font-size: 18px">&#128075;,</span>
       </h6>
-      <i class="fa-solid fa-circle-plus icon"></i>
+      <!-- <router-link to="/addCustomer"> -->
+      <i
+        @click="() => TogglePopup('buttonTrigger')"
+        class="fa-solid fa-circle-plus icon"
+      ></i>
+      <AddCustomer
+        v-if="popupTriggers.buttonTrigger"
+        :TogglePopup="() => TogglePopup('buttonTrigger')"
+      >
+      </AddCustomer>
+      <!-- </router-link> -->
     </div>
 
     <div class="row p-0 m-0 top-content">
@@ -19,7 +29,8 @@
               <h5 class="sub-content sub-content-2">5,423</h5>
               <p class="sub-content sub-content-3">
                 <span style="color: green; font-weight: bolder"
-                  ><i style="margin-right: 3px;" class="fa-solid fa-arrow-up"></i>50%</span
+                  ><i style="margin-right: 3px" class="fa-solid fa-arrow-up"></i
+                  >50%</span
                 >
                 this month
               </p>
@@ -36,7 +47,11 @@
               <h5 class="sub-content sub-content-2">1893</h5>
               <p class="sub-content sub-content-3">
                 <span style="color: red"
-                  ><i style="margin-right: 3px;" class="fa-solid fa-arrow-down"></i>2%</span
+                  ><i
+                    style="margin-right: 3px"
+                    class="fa-solid fa-arrow-down"
+                  ></i
+                  >2%</span
                 >
                 this month
               </p>
@@ -74,11 +89,286 @@
         </div>
       </div>
     </div>
-    <div class="row p-0 m-0 bottom-content"></div>
+    <div class="row p-0 m-0 bottom-content">
+      <div class="bottom">
+        <div class="col-12 first-content mt-2">
+          <div class="head">
+            <h5 class="bottom-header">All Customers</h5>
+            <p
+              style="
+                color: rgb(119, 212, 168);
+                font-size: 12px;
+                /* margin-left: 3px; */
+                font-weight: bolder;
+              "
+            >
+              Active Members
+            </p>
+          </div>
+          <div class="fn d-flex">
+            <div class="search d-flex">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input
+                class="form-control mr-sm-2 mx-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+            </div>
+
+            <div class="dropdown">
+              <button
+                class="btn bg-light dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sort by:
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 second-content">
+          <div
+            class="table-responsive"
+            style="height: 320px; position: relative"
+          >
+            <table class="table align-middle mb-0 bg-white table-striped">
+              <thead class="bg-light">
+                <tr>
+                  <th style="font-weight: bolder">Customer Name</th>
+                  <th style="font-weight: bolder">Company</th>
+                  <th style="font-weight: bolder">Phone Number</th>
+                  <th style="font-weight: bolder">Email</th>
+                  <th style="font-weight: bolder">Country</th>
+                  <th style="font-weight: bolder">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in items" :key="item.id">
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.company }}</td>
+                  <td>{{ item.contact }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.country }}</td>
+                  <td>
+                    <span
+                      v-if="item.status == 'Active'"
+                      class="badge border badge-success rounded-pill d-inline"
+                      >{{ item.status }}</span
+                    >
+                    <span
+                      v-if="item.status == 'Inactive'"
+                      class="badge border badge-danger rounded-pill d-inline"
+                      >{{ item.status }}</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-12 third-content mt-2">
+          <div class="footer m-2">
+            <p style="position: absolute; left: 12px; bottom: 5px; font-size: 12px; color: gray;">Showing 1 to 8 of 256k entries</p>
+            <nav aria-label="Page navigation example" style="position: absolute; right: 12px;">
+              <ul
+                class="pagination pagination-sm justify-content-end"
+                style="font-weight: bold;"
+              >
+                <li
+                  class="page-item disabled"
+                  style="background: rgb(240, 236, 236); margin-left: 5px"
+                >
+                  <a class="page-link">Previous</a>
+                </li>
+                <li
+                  class="page-item active"
+                  style="background: rgb(240, 236, 236); margin-left: 5px"
+                >
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li
+                  class="page-item"
+                  style="background: rgb(240, 236, 236); margin-left: 5px"
+                >
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li
+                  class="page-item"
+                  style="background: rgb(240, 236, 236); margin-left: 5px"
+                >
+                  <a class="page-link" href="#">3</a>
+                </li>
+                <li
+                  class="page-item"
+                  style="background: rgb(240, 236, 236); margin-left: 5px"
+                >
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+           
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
-<script setup></script>
-<style lang="scss">
+
+<script setup>
+import { ref } from "vue";
+import AddCustomer from "../components/AddCustomer.vue";
+
+let items = ref([]);
+
+items = [
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Inactive",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+  {
+    id: 1,
+    name: "Kamal",
+    company: "Microsoft",
+    contact: "0776655444",
+    email: "kamal@gmail.com",
+    country: "Sri Lanka",
+    status: "Active",
+  },
+];
+
+const popupTriggers = ref({
+  buttonTrigger: false,
+  timedTrigger: false,
+});
+
+const TogglePopup = (trigger) => {
+  popupTriggers.value[trigger] = !popupTriggers.value[trigger];
+};
+</script>
+
+<style lang="scss" scoped>
 .main-outer {
   position: relative;
   width: 100%;
@@ -116,6 +406,7 @@
   .top-content {
     width: 100%;
     height: 15%;
+    position: relative;
     // background: red;
     display: flex;
     align-items: center;
@@ -129,9 +420,11 @@
       display: flex;
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2),
         0 5px 10px 0 rgba(0, 0, 0, 0.2);
+      position: relative;
 
       .t-col {
         // border: 1px solid black;
+        position: relative;
 
         .content {
           display: flex;
@@ -139,6 +432,7 @@
           align-items: center;
           height: 100%;
           width: 100%;
+          position: relative;
           .icon-wrapper {
             width: 50px;
             height: 50px;
@@ -148,10 +442,12 @@
             align-items: center;
             justify-content: center;
             margin-right: 30px;
+            position: relative;
 
             .icons {
               font-size: 20px;
               color: green;
+              position: relative;
             }
           }
 
@@ -160,25 +456,30 @@
             display: flex;
             flex-direction: column;
             padding: 0;
+            position: relative;
 
             .sub-content {
               margin: 0;
               padding: 0;
+              position: relative;
             }
             .sub-content-1 {
               color: darkgray;
               font-size: 10px;
               font-weight: bolder;
+              position: relative;
             }
 
             .sub-content-2 {
               font-size: 20px;
               font-weight: bolder;
+              position: relative;
             }
 
             .sub-content-3 {
               color: grey;
               font-size: 12px;
+              position: relative;
 
               .active-users {
                 width: 20px;
@@ -187,6 +488,7 @@
                 object-fit: cover;
                 margin-top: 2px;
                 margin-right: -6px;
+                position: relative;
               }
             }
           }
@@ -196,8 +498,73 @@
   }
   .bottom-content {
     width: 100%;
-    height: 70%;
+    height: 77%;
     // background: green;
+    position: relative;
+    // top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .bottom {
+      width: 90%;
+      height: 95%;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2),
+        0 5px 10px 0 rgba(0, 0, 0, 0.2);
+      position: relative;
+
+      .first-content {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .head {
+          position: relative;
+          .bottom-header {
+            // margin-left: 3px;
+            // padding-top: 5px;
+            font-weight: bolder;
+            position: relative;
+          }
+        }
+
+        .fn {
+          position: absolute;
+          right: 0;
+          .search {
+            position: relative;
+            .search-icon {
+              position: absolute;
+              margin: auto;
+              left: 200px;
+              top: 10px;
+            }
+          }
+        }
+      }
+      .second-content {
+        position: relative;
+      }
+
+      .thrid-content {
+        position: relative;
+
+        .footer {
+          position: relative ;
+          display: flex;
+
+          .toe-message{
+            position: fixed;    
+            margin: auto;
+            bottom: 70px;
+          }
+        }
+      }
+    }
   }
 }
 </style>

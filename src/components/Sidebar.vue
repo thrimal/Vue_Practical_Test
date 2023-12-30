@@ -21,7 +21,7 @@
         <span class="material-icons">account_box</span>
         <span class="text">Customer</span>
       </router-link>
-      <router-link to="/" class="button">
+      <router-link to="/product" class="button">
         <span class="material-icons">category</span>
         <span class="text">Product</span>
       </router-link>

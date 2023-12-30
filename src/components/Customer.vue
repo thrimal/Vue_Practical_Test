@@ -140,7 +140,7 @@
             class="table-responsive"
             style="height: 320px; position: relative"
           >
-            <table class="table align-middle mb-0 bg-white table-striped">
+            <table class="table align-middle mb-0 bg-white table-hover">
               <thead class="bg-light">
                 <tr>
                   <th style="font-weight: bolder">Customer Name</th>

@@ -121,7 +121,7 @@ const { TogglePopup } = defineProps(["TogglePopup"]);
     .add-btn{
         position: relative;
         height: 33px;
-        right: 27%;
+        right: 29%;
         font-weight: bolder;
     }
 
@@ -142,7 +142,7 @@ const { TogglePopup } = defineProps(["TogglePopup"]);
     .mid-content{
         position: relative;
         // margin: auto;
-        right: 17%;
+        right: 18%;
         font-weight: bolder;
     }
 

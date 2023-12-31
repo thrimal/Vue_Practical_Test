@@ -179,7 +179,6 @@
             <p
               style="
                 position: absolute;
-                left: 12px;
                 bottom: 0;
                 font-size: 12px;
                 color: gray;
@@ -514,6 +513,7 @@ const TogglePopup = (trigger) => {
     display: flex;
     align-items: center;
     justify-content: center;
+    // margin-bottom: 10px;
     // background: black;
 
     .bottom {
@@ -578,7 +578,7 @@ const TogglePopup = (trigger) => {
               .dropdown {
                 position: absolute;
                 top: 8px;
-                right: -12px;
+                right: -5px;
                 margin-left: 10px;
               }
             }
@@ -602,12 +602,6 @@ const TogglePopup = (trigger) => {
         .footer {
           position: relative;
           display: flex;
-
-          .toe-message {
-            position: relative;
-            bottom: 80px;
-            left: 10px;
-          }
 
           .paginaters {
             position: absolute;

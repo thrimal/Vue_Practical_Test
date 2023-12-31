@@ -514,8 +514,6 @@ const TogglePopup = (trigger) => {
     display: flex;
     align-items: center;
     justify-content: center;
-    // margin-bottom: 10px;
-    // background: black;
 
     .bottom {
       width: 90%;

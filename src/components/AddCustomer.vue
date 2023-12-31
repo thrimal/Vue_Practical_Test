@@ -282,60 +282,6 @@ const addAddresses = () => {
         font-weight: bolder;
       }
     }
-
-    // .context {
-    // position: relative;
-    // width: 100%;
-    // height: auto;
-    // overflow-y: scroll;
-    // // overflow-x: hidden;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // justify-items: center;
-    // align-items: center;
-    // align-content: center;
-
-    // .sub-buttons {
-    //   position: relative;
-    //   width: 100%;
-    //   height: 40px;
-    //   margin-bottom: 10px;
-    //   .add-btn {
-    //     position: absolute;
-    //     width: 90px;
-    //     left: 12px;
-    //     font-weight: bolder;
-    //   }
-
-    //   .delete-btn {
-    //     position: absolute;
-    //     width: 90px;
-    //     right: 12px;
-    //     font-weight: bolder;
-    //   }
-    // }
-
-    // .header {
-    //   font-weight: bolder;
-    // }
-
-    // .mid-content {
-    //   position: relative;
-    //   right: 18%;
-    //   font-weight: bolder;
-    // }
-
-    // .content {
-    //   width: 95%;
-    //   position: relative;
-
-    //   .submit {
-    //     width: 100%;
-    //     font-weight: bolder;
-    //   }
-    // }
-    // }
   }
 }
 </style>

@@ -89,6 +89,7 @@
         </div>
       </div>
     </div>
+
     <div class="row p-0 m-0 bottom-content">
       <div class="bottom">
         <div class="col-12 first-content mt-2">
@@ -179,7 +180,7 @@
             <p
               style="
                 position: absolute;
-                bottom: 0;
+                bottom: 3px;
                 font-size: 12px;
                 color: gray;
               "

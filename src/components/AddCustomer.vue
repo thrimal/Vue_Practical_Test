@@ -46,7 +46,6 @@
 
         <div class="row m-0 p-0 content" v-for="(input, k) in inputs" :key="k">
           <div class="col-12">
-            <!-- Name input -->
             <div data-mdb-input-init class="form-outline">
               <input
                 type="text"
@@ -55,11 +54,9 @@
                 v-model="input.address"
                 disabled
               />
-              <!-- <label class="form-label" for="address">Address</label> -->
             </div>
           </div>
           <div class="col-3 mt-2">
-            <!-- Name input -->
             <div data-mdb-input-init class="form-outline">
               <input
                 type="text"
@@ -71,7 +68,6 @@
             </div>
           </div>
           <div class="col-9 mt-2">
-            <!-- Email input -->
             <div data-mdb-input-init class="form-outline">
               <input
                 type="text"
@@ -83,7 +79,6 @@
             </div>
           </div>
           <div class="col-12 mt-2">
-            <!-- Name input -->
             <div data-mdb-input-init class="form-outline">
               <input
                 type="text"
@@ -237,7 +232,6 @@ const addAddresses = () => {
         .add-btn {
           position: absolute;
           width: 90px;
-          // height: 33px;
           left: 12px;
           font-weight: bolder;
         }
@@ -245,7 +239,6 @@ const addAddresses = () => {
         .delete-btn {
           position: absolute;
           width: 90px;
-          // height: 33px;
           right: 12px;
           font-weight: bolder;
         }
@@ -257,7 +250,6 @@ const addAddresses = () => {
 
       .mid-content {
         position: relative;
-        // margin: auto;
         right: 18%;
         font-weight: bolder;
       }

@@ -180,17 +180,14 @@
               style="
                 position: absolute;
                 left: 12px;
-                bottom: 5px;
+                bottom: 0;
                 font-size: 12px;
                 color: gray;
               "
             >
               Showing 1 to 8 of 256k entries
             </p>
-            <nav
-              aria-label="Page navigation"
-              style="position: absolute; right: 12px; bottom: 0"
-            >
+            <div class="paginaters">
               <ul
                 class="pagination pagination-sm justify-content-end"
                 style="font-weight: bold"
@@ -226,7 +223,7 @@
                   <a class="page-link" href="#">Next</a>
                 </li>
               </ul>
-            </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -421,7 +418,6 @@ const TogglePopup = (trigger) => {
     width: 100%;
     height: auto;
     position: relative;
-    // background: red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -436,10 +432,8 @@ const TogglePopup = (trigger) => {
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2),
         0 5px 10px 0 rgba(0, 0, 0, 0.2);
       position: relative;
-      // margin-bottom: 10px;
 
       .t-col {
-        // border: 1px solid black;
         position: relative;
 
         .content {
@@ -516,12 +510,11 @@ const TogglePopup = (trigger) => {
   .bottom-content {
     width: 100%;
     height: 77%;
-    // background: green;
     position: relative;
-    // top: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    // background: black;
 
     .bottom {
       width: 90%;
@@ -545,13 +538,10 @@ const TogglePopup = (trigger) => {
 
           .child-1 {
             position: relative;
-            // background: red;
             height: 30px;
             .head {
               position: relative;
               .bottom-header {
-                // margin-left: 3px;
-                // padding-top: 5px;
                 font-weight: bolder;
                 position: relative;
               }
@@ -567,7 +557,6 @@ const TogglePopup = (trigger) => {
 
           .child-2 {
             position: relative;
-            // background: green;
             height: 60px;
             .fn {
               position: relative;
@@ -577,12 +566,10 @@ const TogglePopup = (trigger) => {
               .search {
                 position: absolute;
                 width: 200px;
-                // right: 140px;
                 top: 10px;
                 right: 130px;
                 .search-icon {
                   position: absolute;
-                  // margin: auto;
                   left: 180px;
                   top: 12px;
                 }
@@ -600,7 +587,7 @@ const TogglePopup = (trigger) => {
       }
       .second-content {
         position: relative;
-        // height: 300px;
+
         th,
         thead {
           position: sticky;
@@ -610,15 +597,21 @@ const TogglePopup = (trigger) => {
 
       .thrid-content {
         position: relative;
+        height: 50px;
 
         .footer {
           position: relative;
           display: flex;
 
           .toe-message {
+            position: relative;
+            bottom: 80px;
+            left: 10px;
+          }
+
+          .paginaters {
             position: absolute;
-            margin: auto;
-            bottom: 70px;
+  
           }
         }
       }
@@ -628,34 +621,18 @@ const TogglePopup = (trigger) => {
 
 @media screen and (max-width: 991px) {
   .main-outer {
-
     .top-content {
-      position: relative;
-      // height: auto;
-
       .top {
         margin: 10px 0 10px 0;
-        position: relative;
-        // top: 15%;
-        // height: auto;
       }
     }
 
     .bottom-content {
-      position: relative;
-      // background: black;
-      // top: 5%;
       .bottom {
         position: relative;
         height: auto;
 
         .first-content {
-          // display: flex;
-          // flex-direction: column;
-          position: relative;
-          // justify-content: center;
-          // align-items: center;
-
           .child-content {
             .child-1 {
               .head {
@@ -680,15 +657,13 @@ const TogglePopup = (trigger) => {
 
             .child-2 {
               .fn {
-                // position: absolute;
                 right: 0;
                 left: 0;
                 width: 100%;
                 .search {
-                  // top: 100px;
                   left: -10px;
                 }
-                .dropdown{
+                .dropdown {
                   right: 4px;
                 }
               }

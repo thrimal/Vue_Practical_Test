@@ -1,18 +1,20 @@
 <template>
   <div class="main-outer">
-    <div class="header-content d-flex">
-      <h6 class="header">
-        Hello Evano <span style="font-size: 18px">&#128075;,</span>
-      </h6>
-      <i
-        @click="() => TogglePopup('buttonTrigger')"
-        class="fa-solid fa-circle-plus icon"
-      ></i>
-      <AddCustomer
-        v-if="popupTriggers.buttonTrigger"
-        :TogglePopup="() => TogglePopup('buttonTrigger')"
-      >
-      </AddCustomer>
+    <div class="row m-0 p-0">
+      <div class="col-12 header-content">
+        <h6 class="header">
+          Hello Evano <span style="font-size: 18px">&#128075;,</span>
+        </h6>
+        <i
+          @click="() => TogglePopup('buttonTrigger')"
+          class="fa-solid fa-circle-plus icon"
+        ></i>
+        <AddCustomer
+          v-if="popupTriggers.buttonTrigger"
+          :TogglePopup="() => TogglePopup('buttonTrigger')"
+        >
+        </AddCustomer>
+      </div>
     </div>
 
     <div class="row p-0 m-0 top-content">
@@ -90,46 +92,45 @@
     <div class="row p-0 m-0 bottom-content">
       <div class="bottom">
         <div class="col-12 first-content mt-2">
-          <div class="head">
-            <h5 class="bottom-header">All Customers</h5>
-            <p
-              style="
-                color: rgb(119, 212, 168);
-                font-size: 12px;
-                /* margin-left: 3px; */
-                font-weight: bolder;
-              "
-            >
-              Active Members
-            </p>
-          </div>
-          <div class="fn d-flex">
-            <div class="search d-flex">
-              <i class="fa-solid fa-magnifying-glass search-icon"></i>
-              <input
-                class="form-control mr-sm-2 mx-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
+          <div class="row m-0 p-0 child-content">
+            <div class="col-lg-4 col-md-12 col-sm-12 child-1">
+              <div class="head">
+                <h5 class="bottom-header">All Customers</h5>
+                <p class="act-mem">Active Members</p>
+              </div>
             </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 child-2">
+              <div class="fn d-flex">
+                <div class="search">
+                  <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                  <input
+                    class="form-control mr-sm-2 mx-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                </div>
 
-            <div class="dropdown">
-              <button
-                class="btn bg-light dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Sort by:
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
+                <div class="dropdown">
+                  <button
+                    class="btn bg-light dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Sort by:
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -235,7 +236,7 @@
 
 <script setup>
 import { ref } from "vue";
-import AddCustomer from './AddCustomer.vue'
+import AddCustomer from "./AddCustomer.vue";
 
 let items = ref([]);
 
@@ -385,11 +386,13 @@ const TogglePopup = (trigger) => {
   width: 100%;
   height: 100vh;
   background: rgb(243, 251, 253);
-
+  overflow-x: hidden;
+  position: relative;
   .header-content {
     display: flex;
     position: relative;
-    height: 50px;
+    width: 100%;
+    height: 60px;
     .header {
       position: absolute;
       padding: 15px 50px 10px 50px;
@@ -416,7 +419,7 @@ const TogglePopup = (trigger) => {
 
   .top-content {
     width: 100%;
-    height: 15%;
+    height: auto;
     position: relative;
     // background: red;
     display: flex;
@@ -425,13 +428,15 @@ const TogglePopup = (trigger) => {
 
     .top {
       width: 90%;
-      height: 80%;
+      height: auto;
+      padding: 10px 0 10px 0;
       background: white;
       border-radius: 20px;
       display: flex;
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2),
         0 5px 10px 0 rgba(0, 0, 0, 0.2);
       position: relative;
+      // margin-bottom: 10px;
 
       .t-col {
         // border: 1px solid black;
@@ -452,7 +457,8 @@ const TogglePopup = (trigger) => {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 30px;
+            margin-right: 20px;
+            margin-left: 20px;
             position: relative;
 
             .icons {
@@ -463,7 +469,7 @@ const TogglePopup = (trigger) => {
           }
 
           .text-wrapper {
-            // margin: 0 10px 0 10px;
+            margin: 0 20px 0 0px;
             display: flex;
             flex-direction: column;
             padding: 0;
@@ -533,26 +539,61 @@ const TogglePopup = (trigger) => {
         align-items: center;
         position: relative;
 
-        .head {
+        .child-content {
+          width: 100%;
           position: relative;
-          .bottom-header {
-            // margin-left: 3px;
-            // padding-top: 5px;
-            font-weight: bolder;
-            position: relative;
-          }
-        }
 
-        .fn {
-          position: absolute;
-          right: 0;
-          .search {
+          .child-1 {
             position: relative;
-            .search-icon {
-              position: absolute;
-              margin: auto;
-              left: 200px;
-              top: 10px;
+            // background: red;
+            height: 30px;
+            .head {
+              position: relative;
+              .bottom-header {
+                // margin-left: 3px;
+                // padding-top: 5px;
+                font-weight: bolder;
+                position: relative;
+              }
+
+              .act-mem {
+                font-size: 12px;
+                color: green;
+                position: relative;
+                font-weight: bolder;
+              }
+            }
+          }
+
+          .child-2 {
+            position: relative;
+            // background: green;
+            height: 60px;
+            .fn {
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              .search {
+                position: absolute;
+                width: 200px;
+                // right: 140px;
+                top: 10px;
+                right: 130px;
+                .search-icon {
+                  position: absolute;
+                  // margin: auto;
+                  left: 180px;
+                  top: 12px;
+                }
+              }
+
+              .dropdown {
+                position: absolute;
+                top: 8px;
+                right: -12px;
+                margin-left: 10px;
+              }
             }
           }
         }
@@ -578,6 +619,80 @@ const TogglePopup = (trigger) => {
             position: absolute;
             margin: auto;
             bottom: 70px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .main-outer {
+
+    .top-content {
+      position: relative;
+      // height: auto;
+
+      .top {
+        margin: 10px 0 10px 0;
+        position: relative;
+        // top: 15%;
+        // height: auto;
+      }
+    }
+
+    .bottom-content {
+      position: relative;
+      // background: black;
+      // top: 5%;
+      .bottom {
+        position: relative;
+        height: auto;
+
+        .first-content {
+          // display: flex;
+          // flex-direction: column;
+          position: relative;
+          // justify-content: center;
+          // align-items: center;
+
+          .child-content {
+            .child-1 {
+              .head {
+                position: relative;
+                margin-bottom: 100px;
+                display: flex;
+                width: 100%;
+
+                .bottom-header {
+                  position: absolute;
+                  left: 0;
+                  width: 140px;
+                }
+                .act-mem {
+                  position: absolute;
+                  right: 0;
+                  top: 3px;
+                  width: 95px;
+                }
+              }
+            }
+
+            .child-2 {
+              .fn {
+                // position: absolute;
+                right: 0;
+                left: 0;
+                width: 100%;
+                .search {
+                  // top: 100px;
+                  left: -10px;
+                }
+                .dropdown{
+                  right: 4px;
+                }
+              }
+            }
           }
         }
       }

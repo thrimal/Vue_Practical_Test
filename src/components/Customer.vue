@@ -599,6 +599,7 @@ const TogglePopup = (trigger) => {
       .thrid-content {
         position: relative;
         height: 50px;
+        display: flex;
 
         .footer {
           position: relative;
@@ -668,5 +669,9 @@ const TogglePopup = (trigger) => {
       }
     }
   }
+}
+
+@media  screen and (max-width: 640px) {
+  
 }
 </style>

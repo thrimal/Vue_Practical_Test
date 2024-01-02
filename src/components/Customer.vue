@@ -180,7 +180,6 @@
             <p
               style="
                 position: absolute;
-                bottom: 3px;
                 font-size: 12px;
                 color: gray;
               "

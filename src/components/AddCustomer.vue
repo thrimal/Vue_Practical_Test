@@ -4,42 +4,43 @@
       <div class="icon" @click="TogglePopup()">
         <i class="fa-regular fa-circle-xmark"></i>
       </div>
-      <div class="row p-0 m-0 forms">
+      <form class="row p-0 m-0 needs-validation forms" novalidate>
         <h4 class="header">Add New Customer</h4>
         <div class="col-12 mt-3">
-          <div data-mdb-input-init class="form-outline">
-            <input type="text" id="name" class="form-control field" />
+          <div data-mdb-input-init class="form-outline" :class="{ 'is-invalid': !isCustomerNameValid }">
+            <input type="text" id="name" class="form-control field" v-model="customerName" required/>
             <label class="form-label" for="name">Customer Name</label>
+            <div v-if="!isCustomerNameValid" class="invalid-feedback">Please enter a valid customer name.</div>
           </div>
         </div>
 
         <div class="col-12 mt-2">
           <div data-mdb-input-init class="form-outline">
-            <input type="text" id="company" class="form-control field" />
+            <input type="text" id="company" class="form-control field" required/>
             <label class="form-label" for="company">Company</label>
           </div>
         </div>
 
         <div class="col-12 mt-2">
           <div data-mdb-input-init class="form-outline">
-            <input type="text" id="contact" class="form-control field" />
+            <input type="text" id="contact" class="form-control field" required/>
             <label class="form-label" for="contact">Contact</label>
           </div>
         </div>
 
         <div class="col-12 mt-2">
           <div data-mdb-input-init class="form-outline">
-            <input type="email" id="email" class="form-control field" />
+            <input type="email" id="email" class="form-control field" required/>
             <label class="form-label" for="email">Email</label>
           </div>
         </div>
         <div class="col-12 mt-2">
           <div data-mdb-input-init class="form-outline">
-            <input type="text" id="country" class="form-control field" />
+            <input type="text" id="country" class="form-control field" required/>
             <label class="form-label" for="country">Country</label>
           </div>
         </div>
-      </div>
+      </form>
       <h6 class="sub-header">Address Details:</h6>
       <div class="row p-0 m-0 addresses">
         
@@ -118,7 +119,7 @@
       <div class="row m-0 p-0 buttons">
         <div class="col-12">
           <button
-            type="button"
+            type="submit"
             class="btn btn-success submit"
             data-mdb-ripple-init
           >
@@ -131,11 +132,17 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import axios from "axios";
 
 const { TogglePopup } = defineProps(["TogglePopup"]);
 let num = 1;
+const customerName = ref("");
+const email = ref("");
+
+const isCustomerNameValid = computed(() => customerName.value.trim() !== "");
+const isEmailValid = computed(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value));
+
 
 const inputs = ref([
   {
